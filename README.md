@@ -1,167 +1,155 @@
-# Customer Churn Analysis
-
-## Project Overview
-
-This project analyzes customer churn behavior using **Python, SQL, Power BI, and Exploratory Data Analysis (EDA)** to identify the factors associated with customers leaving a telecom company.
-
-The analysis covers **7,043 customer records** and investigates customer demographics, contract types, tenure, internet services, payment methods, and monthly charges.
-
-An interactive Power BI dashboard was developed to monitor churn KPIs, identify high-risk customer segments, and support data-driven customer retention decisions.
+# Customer Churn Analytics & Retention Insights
 
 ---
 
-## Business Problem
+# 📌 Project Overview
 
-Customer churn directly affects recurring revenue and customer acquisition costs. Understanding which customers are more likely to leave and the factors associated with churn can help businesses design more effective retention strategies.
+Customer churn is one of the biggest challenges for subscription-based businesses because losing existing customers directly impacts revenue and increases customer acquisition costs.
 
-The objective of this project is to analyze customer behavior and identify the major characteristics associated with customer churn.
+This end-to-end analytics project analyzes **7,043 telecom customer records** to identify the major factors associated with customer churn and provide actionable retention insights.
 
-### Business Questions
+The project demonstrates a complete Data Analytics workflow including **Python (Data Cleaning & EDA), SQL Server (Business Analysis), and Power BI (Interactive Dashboard)**.
 
-The analysis focuses on the following questions:
+The objective is to transform raw customer data into meaningful business insights that support customer retention and decision-making.
+
+---
+
+# 🎯 Business Problem
+
+Telecom companies lose a significant number of customers every year due to contract preferences, pricing, service quality, and customer behavior.
+
+Without understanding why customers leave, businesses struggle to design effective retention strategies.
+
+This project aims to answer critical business questions by analyzing customer demographics, contracts, internet services, payment methods, tenure, and monthly charges.
+
+---
+
+# 🔄 Project Workflow
+
+```
+
+Raw Dataset
+↓
+Python (Data Cleaning & Exploratory Data Analysis)
+↓
+SQL Server (20 Business Analysis Queries)
+↓
+Power BI Dashboard
+↓
+Business Insights
+↓
+Business Recommendations
+
+```
+
+---
+
+# ❓ Business Questions
+
+This project answers the following business questions:
 
 - What is the overall customer churn rate?
-- Which contract types experience the highest churn?
-- Are newer customers more likely to churn?
-- How does monthly spending differ between churned and retained customers?
-- Which internet service groups experience higher churn?
-- Does gender have a significant difference in churn counts?
+- Which contract type has the highest churn?
+- Which internet service category experiences the highest churn?
+- Are customers with higher monthly charges more likely to churn?
+- Do new customers churn more frequently than long-term customers?
 - Which payment methods are associated with higher churn?
-- Which customer segments should receive greater retention attention?
+- Does customer gender significantly impact churn?
+- Which customer segments require greater retention efforts?
 
 ---
 
-## Tools & Technologies
+# 🛠️ Tools & Technologies
 
 | Technology | Purpose |
-|---|---|
-| Python | Data preparation and exploratory analysis |
-| Pandas | Data manipulation and analysis |
-| NumPy | Numerical operations |
-| Matplotlib | Data visualization |
-| Seaborn | Exploratory visualizations |
-| SQL | Customer churn analysis and KPI calculations |
-| Power BI | Interactive dashboard and business reporting |
-| VS Code | Development environment |
+|------------|----------|
+| Python | Data Cleaning & Analysis |
+| Pandas | Data Manipulation |
+| NumPy | Numerical Analysis |
+| Matplotlib | Data Visualization |
+| Seaborn | Exploratory Data Analysis |
+| SQL Server | Business Analysis |
+| Power BI | Dashboard Development |
+| DAX | KPI Calculations |
+| VS Code | Development Environment |
+| Git & GitHub | Version Control |
 
 ---
 
-## Dataset Information
+# 📂 Dataset Information
 
-The dataset contains **7,043 telecom customer records** across **21 columns**.
-
-### Key Customer Attributes
-
-The dataset includes information related to:
-
-- Customer demographics
-- Senior citizen status
-- Partner and dependent status
-- Customer tenure
-- Phone services
-- Internet services
-- Online security and technical support
-- Streaming services
-- Contract type
-- Payment method
-- Monthly charges
-- Total charges
-- Customer churn status
+The project uses the **IBM Telco Customer Churn Dataset** containing customer demographic, service usage, billing, and churn information.
 
 ### Dataset Summary
 
 | Metric | Value |
-|---|---:|
+|---------|--------:|
 | Total Records | 7,043 |
 | Total Columns | 21 |
-| Churned Customers | 1,869 |
+| Churn Customers | 1,869 |
 | Retained Customers | 5,174 |
-| Overall Churn Rate | 26.54% |
+| Churn Rate | 26.54% |
+
+### Key Attributes
+
+- Customer ID
+- Gender
+- Senior Citizen
+- Partner
+- Dependents
+- Tenure
+- Phone Service
+- Internet Service
+- Online Security
+- Online Backup
+- Device Protection
+- Tech Support
+- Streaming TV
+- Streaming Movies
+- Contract
+- Paperless Billing
+- Payment Method
+- Monthly Charges
+- Total Charges
+- Churn
 
 ---
 
-## Data Preparation
+# 🧹 Data Preparation
 
-The dataset was reviewed before analysis to ensure that analytical fields could be used correctly.
+The dataset was cleaned before analysis to improve data quality and ensure accurate business reporting.
 
-Key preparation considerations include:
+### Data Cleaning Steps
 
-- Checking dataset dimensions and column types
-- Checking duplicate records
-- Reviewing missing and blank values
-- Converting `TotalCharges` from text to a numeric field where required
-- Handling blank values found in `TotalCharges`
-- Validating categorical variables such as Contract, InternetService, PaymentMethod, and Churn
-- Preparing the dataset for exploratory analysis and dashboard reporting
+- Checked dataset dimensions
+- Verified data types
+- Checked duplicate records
+- Identified missing values
+- Converted **TotalCharges** to numeric format
+- Handled blank values
+- Validated categorical variables
+- Prepared dataset for SQL and Power BI analysis
 
-The source dataset contains **11 blank values in `TotalCharges`**, which require handling before numerical analysis of that field.
-
----
-
-## Exploratory Data Analysis
-
-EDA was performed to understand churn behavior across important customer characteristics.
-
-The analysis focuses on:
-
-- Churn distribution
-- Contract type vs. churn
-- Tenure vs. churn
-- Monthly charges vs. churn
-- Internet service vs. churn
-- Gender vs. churn
-- Payment method vs. churn
+The dataset contained **11 blank values** in the **TotalCharges** column, which were removed before performing numerical analysis.
 
 ---
 
-## SQL Analysis
+# 📊 Exploratory Data Analysis (EDA)
 
-SQL was used to calculate business KPIs and analyze churn across different customer segments.
+Python was used to perform Exploratory Data Analysis to understand customer behavior before creating the dashboard.
 
 ### Analysis Performed
 
-- Total customers
-- Total churned customers
-- Overall churn rate
-- Churn by gender
-- Churn by contract type
-- Average monthly charges by churn status
-- Average tenure by churn status
-- Internet service vs. churn
-- Payment method vs. churn
+- Customer Churn Distribution
+- Contract Type Analysis
+- Tenure Distribution
+- Monthly Charges Analysis
+- Internet Service Analysis
+- Gender Analysis
+- Payment Method Analysis
+- Correlation Heatmap
 
-### Example SQL
-
-```sql
--- Overall Churn Rate
-SELECT
-    ROUND(
-        SUM(CASE WHEN Churn = 'Yes' THEN 1 ELSE 0 END)
-        * 100.0 / COUNT(*),
-        2
-    ) AS churn_rate
-FROM churn_data;
-
-
--- Churn by Contract Type
-SELECT
-    Contract,
-    COUNT(*) AS total_customers,
-    SUM(CASE WHEN Churn = 'Yes' THEN 1 ELSE 0 END) AS churn_customers
-FROM churn_data
-GROUP BY Contract
-ORDER BY churn_customers DESC;
-
-
--- Average Monthly Charges by Churn
-SELECT
-    Churn,
-    ROUND(AVG(MonthlyCharges), 2) AS avg_monthly_charges
-FROM churn_data
-GROUP BY Churn;
-```
-
-The complete SQL analysis is available in the `SQL` directory.
+More than **14 visualizations** were created to identify churn patterns and business trends.
 
 ---
 
@@ -175,14 +163,62 @@ The `Notebooks/ai_insights.py` script calculates churn metrics directly from the
 
 ---
 
-## Power BI Dashboard
+# 🗄 SQL Analysis
 
-An interactive Power BI dashboard was developed to provide a consolidated view of customer churn.
+SQL Server was used to perform business analysis after completing data cleaning.
 
-### KPI Cards
+A total of **20 business-oriented SQL queries** were developed using:
 
-| KPI | Result |
-|---|---:|
+- Aggregate Functions
+- GROUP BY
+- HAVING
+- ORDER BY
+- CASE Statements
+- Subqueries
+
+### SQL Analysis Covered
+
+### Business KPIs
+
+- Total Customers
+- Total Churn Customers
+- Overall Churn Rate
+
+### Customer Segmentation
+
+- Churn by Gender
+- Churn by Contract Type
+- Internet Service vs Churn
+- Payment Method vs Churn
+
+### Business Analysis
+
+- Average Monthly Charges
+- Average Tenure
+- Spending Analysis
+- Loyalty Analysis
+
+### Intermediate SQL
+
+- CASE Statements
+- HAVING Clause
+- Subqueries
+- Customer Segmentation Queries
+
+The complete SQL scripts are available inside the **SQL** folder.
+
+---
+
+# 📈 Power BI Dashboard
+
+An interactive Power BI dashboard was developed to provide stakeholders with a centralized view of customer churn trends, customer segmentation, and key business performance indicators.
+
+The dashboard enables users to monitor churn behavior, identify high-risk customer segments, and support data-driven customer retention strategies through interactive visualizations and KPI tracking.
+
+### Dashboard KPIs
+
+| KPI | Value |
+|------|-------:|
 | Total Customers | 7,043 |
 | Total Churn Customers | 1,869 |
 | Churn Rate | 26.54% |
@@ -192,141 +228,317 @@ An interactive Power BI dashboard was developed to provide a consolidated view o
 
 The dashboard includes:
 
-- Churn by Internet Service
-- Tenure vs. Churn
+- Customer Churn Distribution
 - Churn by Contract Type
+- Customer Tenure Distribution by Churn
+- Monthly Charges by Churn
+- Churn by Internet Service
 - Churn by Gender
-- Monthly Charges vs. Churn
-- Contract filter
-- Gender filter
-- Internet Service filter
-- Key business insights
+- Interactive Slicers
+  - Contract
+  - Gender
+  - Internet Service
+- Business Key Insights
 
 ---
 
-## Dashboard Preview
+# 🖥 Dashboard Preview
 
-![Customer Churn Analysis Dashboard](Screenshots/dashboard.png)
+The Power BI dashboard provides an interactive view of customer churn behavior, enabling business users to monitor KPIs, analyze customer segments, and identify opportunities to improve customer retention.
 
----
-
-## Key Insights
-
-### Contract Type
-
-Month-to-month customers show substantially higher churn compared with customers on one-year and two-year contracts.
-
-This indicates that customers with shorter contractual commitments represent an important retention segment.
-
-### Customer Tenure
-
-Churn is concentrated more heavily among customers with lower tenure.
-
-Newer customers therefore represent an important group for early-stage retention initiatives.
-
-### Monthly Charges
-
-Customers who churn have higher average monthly charges than customers who remain with the company.
-
-Pricing and perceived value may therefore be useful areas for further investigation.
-
-### Internet Service
-
-Fiber optic customers show relatively high churn compared with other internet service groups.
-
-Further investigation into pricing, service experience, and customer expectations within this segment may help explain the pattern.
-
-### Gender
-
-Churned customers are distributed relatively evenly between male and female customers.
-
-Gender therefore appears less useful than contract, tenure, service type, or monthly charges for identifying high-risk segments in this descriptive analysis.
+![Customer Churn Dashboard](Screenshots/Customer%20Churn%20%26%20Retention%20Insights%20Dashboard.png)
 
 ---
 
-## Business Recommendations
+# 💡 Key Insights
 
-Based on the analysis:
+### 📌 Overall Customer Churn
 
-1. **Prioritize month-to-month customers**  
-   Develop targeted retention campaigns for customers using month-to-month contracts.
-
-2. **Strengthen early customer engagement**  
-   Since newer customers experience higher churn, onboarding and early lifecycle engagement should receive additional attention.
-
-3. **Investigate high monthly charges**  
-   Analyze whether high-spending customers perceive sufficient value from their services and consider targeted offers where appropriate.
-
-4. **Review the fiber optic customer experience**  
-   Investigate service quality, pricing, support interactions, and customer satisfaction among fiber optic customers.
-
-5. **Promote longer-term contracts carefully**  
-   Incentives for one-year and two-year contracts may help reduce churn where they provide genuine customer value.
-
-6. **Use multiple churn indicators together**  
-   Contract type, tenure, service type, payment method, and monthly charges should be considered together when identifying customers for retention efforts.
+- The overall customer churn rate is **26.54%**, indicating that nearly one out of every four customers has left the company.
 
 ---
 
-## Project Structure
+### 📌 Contract Type
+
+- Customers with **Month-to-Month contracts** exhibit the highest churn compared with One-Year and Two-Year contracts.
+- Long-term contracts are associated with significantly higher customer retention.
+
+---
+
+### 📌 Customer Tenure
+
+- Customers with lower tenure are considerably more likely to churn.
+- New customers represent the highest-risk segment and should receive additional onboarding support.
+
+---
+
+### 📌 Monthly Charges
+
+- Churned customers have higher average monthly charges than retained customers.
+- Pricing strategy and perceived customer value may influence churn behavior.
+
+---
+
+### 📌 Internet Service
+
+- Customers using **Fiber Optic Internet Service** experience higher churn than customers using DSL or no internet service.
+- This segment requires further investigation into pricing, service quality, and customer experience.
+
+---
+
+### 📌 Gender
+
+- Churn is distributed relatively evenly between male and female customers.
+- Gender appears to have a limited impact on customer churn compared with business-related variables.
+
+---
+
+# 📋 Business Recommendations
+
+Based on the analysis, the following business recommendations are proposed:
+
+### 1. Improve Retention for Month-to-Month Customers
+
+Develop targeted retention campaigns and personalized offers for customers using month-to-month contracts.
+
+---
+
+### 2. Strengthen New Customer Onboarding
+
+Customers with lower tenure are more likely to churn. Improving the onboarding experience and early customer engagement may reduce early customer loss.
+
+---
+
+### 3. Evaluate Pricing Strategy
+
+Analyze whether customers paying higher monthly charges perceive sufficient value and consider personalized pricing or promotional offers.
+
+---
+
+### 4. Improve Fiber Optic Customer Experience
+
+Investigate service quality, pricing, technical support, and customer satisfaction for Fiber Optic customers.
+
+---
+
+### 5. Encourage Long-Term Contracts
+
+Provide incentives for customers to migrate from Month-to-Month plans to One-Year or Two-Year contracts.
+
+---
+
+### 6. Use Customer Segmentation
+
+Develop retention campaigns using multiple customer attributes including:
+
+- Contract Type
+- Customer Tenure
+- Internet Service
+- Payment Method
+- Monthly Charges
+
+rather than relying on demographic characteristics alone.
+
+---
+
+# ⭐ Project Features
+
+- ✔ End-to-End Data Analytics Project
+- ✔ Data Cleaning & Preprocessing using Python
+- ✔ Exploratory Data Analysis (EDA)
+- ✔ 20 Business-Oriented SQL Queries
+- ✔ Interactive Power BI Dashboard
+- ✔ Customer Segmentation Analysis
+- ✔ KPI Development using DAX
+- ✔ Business Insights & Recommendations
+- ✔ Professional Project Documentation
+- ✔ GitHub Portfolio Ready
+
+---
+
+# 📁 Project Structure
 
 ```text
-customer-churn-analysis/
+Customer-Churn-Analytics-Retention-Insights
 │
-├── Data/
-│   └── Telco Customer Churn dataset
+├── Data
+│   └── WA_Fn-UseC_-Telco-Customer-Churn.csv
 │
-├── Notebooks/
-│   └── Python EDA and analysis
+├── Notebooks
+│   └── Customer_Churn_Analysis.ipynb
 │
-├── SQL/
-│   └── Churn analysis queries
+├── SQL
+│   └── Customer_Churn_SQL_Analysis.sql
 │
-├── Dashboard/
-│   └── Power BI dashboard
+├── Dashboard
+│   └── Customer Churn & Retention Insights Dashboard.pbix
 │
-├── Screenshots/
-│   └── dashboard.png
+├── Reports
+│   └── Visualizations
+│       ├── 01_Customer_Churn_Distribution.png
+│       ├── 02_Contract_Type_Count.png
+│       ├── 03_Contract_Churn_Rate.png
+│       ├── 04_Tenure_Distribution.png
+│       ├── 05_Average_Tenure.png
+│       ├── 06_Monthly_Charges_Distribution.png
+│       ├── 07_Average_Monthly_Charges.png
+│       ├── 08_Internet_Service_Count.png
+│       ├── 09_Internet_Service_Churn_Rate.png
+│       ├── 10_Payment_Method_Count.png
+│       ├── 11_Payment_Method_Churn_Rate.png
+│       ├── 12_Senior_Citizen.png
+│       ├── 13_Gender.png
+│       └── 14_Correlation_Heatmap.png
 │
+├── Screenshots
+│   └── Customer Churn & Retention Insights Dashboard.png
+│
+├── README.md
 ├── requirements.txt
-│
-└── README.md
+└── .gitignore
 ```
 
 ---
 
-## How to Reproduce the Project
+# ▶️ How to Run the Project
 
-1. Clone or download this repository.
-2. Load the telecom churn dataset.
-3. Install the Python dependencies listed in `requirements.txt`.
-4. Run the analysis notebook from the `Notebooks` directory.
-5. Review or execute the SQL queries from the `SQL` directory.
-6. Open the Power BI file from the `Dashboard` directory.
-7. Validate dashboard KPIs against the source dataset.
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/yourusername/Customer-Churn-Analytics-Retention-Insights.git
+```
 
 ---
 
-## Key Learnings
+### 2. Install Required Libraries
 
-This project demonstrates practical experience with:
-
-- Customer churn analysis
-- Data cleaning and preparation
-- Exploratory Data Analysis
-- Python-based data analysis
-- SQL analytical queries
-- KPI development
-- Customer segmentation
-- Power BI dashboard development
-- Translating analytical findings into business recommendations
+```bash
+pip install -r requirements.txt
+```
 
 ---
 
-## Author
+### 3. Open the Python Notebook
 
-**Tushar Sharma**
+Navigate to the **Notebooks** folder and run:
 
-Data Analyst | SQL | Python | Power BI | AWS | Snowflake
+```
+Customer_Churn_Analysis.ipynb
+```
 
-GitHub: `imtusharsharma-45`
+---
+
+### 4. Execute SQL Queries
+
+Open the SQL file in **SQL Server Management Studio (SSMS)** and execute the queries.
+
+```
+SQL/
+└── Customer_Churn_SQL_Analysis.sql
+```
+
+---
+
+### 5. Open the Dashboard
+
+Open the Power BI dashboard.
+
+```
+Dashboard/
+└── Customer Churn & Retention Insights Dashboard.pbix
+```
+
+---
+
+### 6. Explore the Dashboard
+
+Use the available slicers to analyze customer churn by:
+
+- Contract Type
+- Gender
+- Internet Service
+
+Review the KPI cards, visualizations, business insights, and recommendations.
+
+---
+
+# 💼 Skills Demonstrated
+
+This project demonstrates practical experience in:
+
+### Programming & Data Analysis
+
+- Python
+- Pandas
+- NumPy
+
+### Data Visualization
+
+- Matplotlib
+- Seaborn
+- Power BI
+- DAX
+
+### Database & Querying
+
+- SQL Server
+- Aggregate Functions
+- GROUP BY
+- HAVING
+- CASE Statements
+- Subqueries
+
+### Business Intelligence
+
+- Customer Churn Analysis
+- Customer Segmentation
+- KPI Development
+- Business Reporting
+- Retention Analytics
+- Dashboard Development
+- Business Recommendations
+
+---
+
+# 📚 Key Learnings
+
+Through this project, I gained hands-on experience in:
+
+- Building an end-to-end data analytics project.
+- Cleaning and preparing real-world business data.
+- Performing Exploratory Data Analysis (EDA) using Python.
+- Writing business-oriented SQL queries for customer analytics.
+- Developing interactive dashboards using Power BI.
+- Creating KPIs and DAX measures for business reporting.
+- Translating analytical findings into actionable business recommendations.
+- Presenting insights through professional documentation and GitHub.
+
+---
+
+# 👨‍💻 Author
+
+## Tushar Sharma
+
+**Aspiring Data Analyst**
+
+### Technical Skills
+
+- Python
+- SQL Server
+- Power BI
+- DAX
+- Pandas
+- NumPy
+- Matplotlib
+- Seaborn
+- AWS
+- Git
+- GitHub
+
+### Connect with Me
+
+**GitHub:** https://github.com/imtusharsharma-45
+
+---
+
+## ⭐ If you found this project useful, consider giving it a Star!
