@@ -165,6 +165,16 @@ The complete SQL analysis is available in the `SQL` directory.
 
 ---
 
+## AI-Powered Insight Generation
+
+The `Notebooks/ai_insights.py` script calculates churn metrics directly from the dataset and sends the results to the Groq API/LLM. It automatically produces a business-friendly executive summary and actionable retention recommendations, then saves the generated output in `Reports/ai_generated_insights.md`.
+
+### Example Generated Output
+
+> The overall churn rate stands at 26.5%, driven primarily by short-term contracts, high-cost fiber-optic plans, and payment via electronic check. Targeting month-to-month subscribers, expensive fiber users, and electronic-check payers offers the greatest opportunity to reduce churn.
+
+---
+
 ## Power BI Dashboard
 
 An interactive Power BI dashboard was developed to provide a consolidated view of customer churn.
