@@ -366,8 +366,8 @@ Customer-Churn-Analytics-Retention-Insights
 │
 ├── Notebooks
 │   └── Customer_Churn_Analysis.ipynb
-│       ├── 04_Tenure_Distribution.png
-│       ├──
+│       ├── Ai_insights.py
+│       ├──list_model.py
 ├── SQL
 │   └── Customer_Churn_SQL_Analysis.sql
 │
