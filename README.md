@@ -366,7 +366,8 @@ Customer-Churn-Analytics-Retention-Insights
 │
 ├── Notebooks
 │   └── Customer_Churn_Analysis.ipynb
-│
+│       ├── Ai_insights.py
+│       ├──list_models.py
 ├── SQL
 │   └── Customer_Churn_SQL_Analysis.sql
 │
